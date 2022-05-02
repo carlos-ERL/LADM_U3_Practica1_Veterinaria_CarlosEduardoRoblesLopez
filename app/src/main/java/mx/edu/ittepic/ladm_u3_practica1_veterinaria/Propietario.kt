@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteException
 
 
-class Propietario (este: Context) {
+class Propietario(este: Context) {
     var este = este
     var curp = ""
     var nombre = ""

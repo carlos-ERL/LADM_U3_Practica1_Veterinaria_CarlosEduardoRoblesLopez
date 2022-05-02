@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import mx.edu.ittepic.ladm_u3_practica1_veterinaria.Propietario
 import mx.edu.ittepic.ladm_u3_practica1_veterinaria.R
 import mx.edu.ittepic.ladm_u3_practica1_veterinaria.databinding.FragmentSearchOwnersBinding
