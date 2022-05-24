@@ -45,13 +45,7 @@ class RegisterOwnerFragment : Fragment() {
                 val regex = "^[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-Z]{1}[0-9]{1}$".toRegex()
 
                 if (!(c0 == "" || c1 == "" || c2 == "" || c3 == "")) {
-                    if (!regex.containsMatchIn(c0)) {
-                        AlertDialog.Builder(requireContext())
-                            .setTitle("CURP")
-                            .setMessage("NO CUMPLE CON LOS PARAMETROS DE UNA CURP")
-                            .setNeutralButton("ACEPTAR") {d,i -> }
-                            .show()
-                    } else if(!(c2.length == 10)) {
+                    if(!(c2.length == 10)) {
                         AlertDialog.Builder(requireContext())
                             .setTitle("TELEFONO")
                             .setMessage("EL NÚMERO DEBEN SER 10 DIGITOS")
@@ -99,13 +93,7 @@ class RegisterOwnerFragment : Fragment() {
                     "^[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[HM]{1}(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)[B-DF-HJ-NP-TV-Z]{3}[0-9A-Z]{1}[0-9]{1}$".toRegex()
                 try {
                     if (!(propietario.curp == "" || propietario.nombre == "" || propietario.telefono == "" || propietario.edad.toString() == "")) {
-                        if (!regex.containsMatchIn(propietario.curp)) {
-                            AlertDialog.Builder(requireContext())
-                                .setTitle("CURP")
-                                .setMessage("NO CUMPLE CON LOS PARAMETROS DE UNA CURP")
-                                .setNeutralButton("ACEPTAR") { d, i -> }
-                                .show()
-                        } else if (!(propietario.telefono.length == 10)) {
+                       if (!(propietario.telefono.length == 10)) {
                             AlertDialog.Builder(requireContext())
                                 .setTitle("TELEFONO")
                                 .setMessage("EL NÚMERO DEBEN SER 10 DIGITOS")
@@ -159,6 +147,7 @@ class RegisterOwnerFragment : Fragment() {
             R.layout.simple_list_item_1,nombrePropietarios)
         binding.owners.setOnItemClickListener { adapterView, view, indice, l ->
             val curpLista = listaIDs.get(indice)
+            updateFlag = 1
             val propietario = Propietario(requireContext()).mostrarPropietario(curpLista)
 
             AlertDialog.Builder(requireContext())
